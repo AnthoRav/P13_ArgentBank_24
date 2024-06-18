@@ -1,0 +1,40 @@
+.not-found-page {
+  color: $white-color;
+  @include center-content;
+  flex-direction: column;
+
+  & h1 {
+    font-weight: 700;
+    font-size: 290px;
+
+    @include phone-portrait {
+      font-size: 96px;
+      margin-top: 4%;
+    }
+  }
+
+  & h2 {
+    font-size: 36px;
+    font-weight: 500;
+    margin-bottom: 110px;
+    text-align: center;
+
+    @include phone-portrait {
+      font-size: 27px;
+      font-size: 16px;
+      margin-bottom: 8%;
+    }
+  }
+
+  & .back-home {
+    font-size: 18px;
+    text-decoration: underline;
+    padding: 10px 0 40px;
+
+    @include phone-portrait {
+      font-size: 14px;
+    }
+
+    @include hover-light-text(0.5);
+  }
+}

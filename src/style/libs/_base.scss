@@ -1,0 +1,19 @@
+html {
+  color: $text-color-blue;
+  font-family: Avenir, Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+a {
+  all: unset;
+}
+
+img {
+  vertical-align: bottom;
+}
+
+main {
+  min-height: calc(100vh - $header-height - $footer-height);
+  background-color: $background-indigo;
+}

@@ -1,0 +1,47 @@
+@use "sass:map";
+
+// centrage horizontal + vertical de 1 éléments
+
+@mixin center-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+// MOUSE-OVERS
+
+// hover : cursor pointer + opacity + @content
+
+@mixin hover-opacity($opacity) {
+  &:hover {
+    cursor: pointer;
+    opacity: $opacity;
+    @content;
+  }
+}
+
+// hover texte clair
+
+@mixin hover-light-text($white-opacity) {
+  &:hover {
+    cursor: pointer;
+    text-shadow: 0px 0px 6px rgba(255, 255, 255, $white-opacity);
+    @content;
+  }
+}
+
+// BREAKPOINTS
+
+// breakpont phone-portrait
+
+@mixin smartphone {
+  @media screen and (max-width: map.get($breakpoints, smartphone)) {
+    @content;
+  }
+}
+
+@mixin phone-portrait {
+  @media screen and (max-width: map.get($breakpoints, phone-portrait)) {
+    @content;
+  }
+}

@@ -1,0 +1,151 @@
+swagger: "2.0"
+info:
+  title: Bank Argent API documentation
+  description: Contains all available API endpoints in this codebase
+  version: "1.0.0"
+  termsOfService: "http://swagger.io/terms/"
+host: localhost:3001
+basePath: /api/v1
+schemes:
+  - http
+paths:
+  
+  /transactions/users/{userId}:
+    get:
+      security:
+        - Bearer: []
+      tags:
+        - Transactions Module
+      summary: Get transactions for the current month
+      description: Retrieve all transactions for the current month
+      parameters:
+        - in: path
+          name: userId
+          description: Unique ID of the user
+          required: true
+          type: string
+      responses:
+        "200":
+          description: List of transactions for the current month retrieved successfully
+          schema:
+            $ref: "#/definitions/TransactionsResponse"
+        "400":
+          description: Invalid Fields
+        "401":
+          description: Unauthorised
+        "403":
+          description: Forbidden
+        "404":
+          description: User don't exist
+        "500":
+          description: Internal Server Error
+  /transactions/{transactionId}/users/{userId}:
+    get:
+      security:
+        - Bearer: []
+      tags:
+        - Transactions Module
+      summary: Get transaction details
+      description: Retrieve details of a specific transaction by its unique ID
+      parameters:
+        - in: path
+          name: userId
+          description: Unique ID of the user
+          required: true
+          type: string
+        - in: path
+          name: transactionId
+          description: Unique ID of transaction
+          required: true
+          type: string
+      responses:
+        "200":
+          description: The request was successful.
+          schema:
+            $ref: "#/definitions/TransactionApiResponse"
+        "400":
+          description: Invalid Fields
+        "401":
+          description: Unauthorised
+        "403":
+          description: Forbidden
+        "404":
+          description: Transaction don't exist
+        "500":
+          description: Internal Server Error
+    put:
+      security:
+        - Bearer: []
+      tags:
+        - Transactions Module
+      summary: Add category or note to a transaction
+      description: Add a new category or note to a transaction
+      parameters:
+        - in: path
+          name: userId
+          description: Unique ID of the user
+          required: true
+          type: string
+        - in: path
+          name: transactionId
+          description: Unique ID of transaction
+          required: true
+          type: string
+        - in: body
+          name: body
+          description: New category and note information for the transaction
+          required: true
+          schema:
+            $ref: "#/definitions/TransactionCategoryNote"
+      responses:
+        "200":
+          description: The request was successful, the category or note was updated correctly
+          schema:
+            $ref: "#/definitions/TransactionApiResponse"
+        "400":
+          description: Invalid Fields
+        "500":
+          description: Internal Server Error
+securityDefinitions:
+  Bearer:
+    type: apiKey
+    name: Authorization
+    in: header
+definitions:
+ 
+  TransactionsResponse:
+        type: array
+        items:
+          $ref: "#/definitions/TransactionApiResponse"
+  TransactionApiResponse:
+    type: object
+    properties:
+      transactionId:
+        type: string
+      date:
+        type: string
+        format: date
+        description: Date of the transaction
+      description:
+        type: string
+        description: Description of the transaction
+      amount:
+        type: number
+        description: Amount of the transaction
+      transaction_type:
+        type: string
+        description: Type of transaction
+      note:
+        type: string
+        description: Note of the transaction
+      category:
+        type: string
+        description: Category of the transaction
+  TransactionCategoryNote:
+    type: object
+    properties:
+      categoryId:
+        type: string
+      note:
+        type: string
+  

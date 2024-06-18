@@ -1,0 +1,33 @@
+.nav,
+.navUser {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 5px 20px;
+  height: 65px;
+  flex-direction: row;
+  @include phone-portrait {
+    padding: 0;
+  }
+
+  &_logo {
+    max-width: 100%;
+    width: 200px;
+    cursor: pointer;
+
+    @include hover-opacity(0.8);
+  }
+  &_sign {
+    padding-right: 20px;
+    font-weight: bold;
+    color: $text-color-blue;
+    cursor: pointer;
+  }
+}
+.navUser {
+  @include phone-portrait {
+    flex-direction: column;
+    justify-content: center;
+    height: 50px;
+  }
+}

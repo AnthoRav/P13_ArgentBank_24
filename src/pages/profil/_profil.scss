@@ -1,0 +1,26 @@
+.user {
+  padding-bottom: 5px;
+
+  & .welcome-edit {
+    text-align: center;
+    padding: $user-page-small-spacing 0;
+    min-height: 200px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+
+    & h1 {
+      font-size: 32px;
+      font-weight: 700;
+      color: $white-color;
+    }
+
+    & .green-button {
+      font-size: 13px;
+      width: 100px;
+      text-align: center;
+      margin: calc(2px + $user-page-small-spacing / 4);
+    }
+  }
+}

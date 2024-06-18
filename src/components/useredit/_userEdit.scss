@@ -1,0 +1,54 @@
+.edit-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.buttons-form {
+  margin: 2rem;
+}
+
+.edit-button {
+  border-color: #00bc77;
+  background-color: #00bc77;
+  color: #fff;
+  font-weight: bold;
+  padding: 10px;
+  margin: 20px;
+}
+
+.edit-form label {
+  margin-right: 10px;
+  color: white;
+  font-weight: bold;
+}
+
+input {
+  padding: 5px;
+
+  &:read-only {
+    opacity: 0.5;
+  }
+}
+
+.edit {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 40px;
+  width: 103%;
+  gap: 5px;
+  @include phone-portrait {
+    flex-direction: column;
+  }
+}
+
+.welcome-user {
+  text-align: center;
+  font-size: 2em;
+  font-weight: bold;
+  font-family: Avenir, Helvetica, Arial, sans-serif;
+  color: white;
+  padding-top: 20px;
+  margin: 0;
+  margin-bottom: 2rem;
+}

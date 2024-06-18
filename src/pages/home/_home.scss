@@ -1,0 +1,12 @@
+.home-page {
+  background-color: $white-color;
+
+  & .features {
+    display: flex;
+    justify-content: space-between;
+
+    @include smartphone {
+      flex-direction: column;
+    }
+  }
+}

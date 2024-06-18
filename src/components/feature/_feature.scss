@@ -1,0 +1,27 @@
+.feature {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  align-items: center;
+  padding: 40px;
+
+  &_icon {
+    width: 150px;
+    border: 10px solid #00bc77;
+    border-radius: 50%;
+    padding: 16px;
+  }
+
+  &_title {
+    margin: 20px 0 8px;
+    font-size: 20px;
+    font-weight: 700;
+    text-align: center;
+    color: $text-color-black;
+  }
+
+  &_text {
+    text-align: center;
+    margin: 8px 0 16px;
+  }
+}

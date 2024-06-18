@@ -1,0 +1,46 @@
+.account {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border: 1px solid black;
+  background-color: #fff;
+  width: 80%;
+  margin: 0 auto;
+  flex-direction: column;
+  padding: 1.5rem;
+  box-sizing: border-box;
+  text-align: left;
+  margin-bottom: 2rem;
+  gap: 10px;
+  &_btn {
+  }
+  &_btn button {
+    font-size: 1.1rem;
+    font-weight: bold;
+    width: max-content;
+  }
+  &_container {
+    width: 100%;
+  }
+  &_amount {
+    font-size: 40px;
+    font-weight: 700;
+  }
+
+  & .green-button {
+    bottom: $account-padding;
+    right: $account-padding;
+    width: 200px;
+
+    @include phone-portrait {
+      position: static;
+      margin-top: 15px;
+      width: 100%;
+    }
+  }
+}
+@media (min-width: 720px) {
+  .account {
+    flex-direction: row;
+  }
+}

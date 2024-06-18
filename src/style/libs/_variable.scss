@@ -1,0 +1,28 @@
+// dims
+
+$header-height: 64px;
+$footer-height: 76px;
+$user-page-medium-spacing: 32px;
+$user-page-small-spacing: 22px;
+$account-padding: 24px;
+
+// colors
+
+$white-color: #fff;
+$black-color: #000;
+$text-color-blue: #2c3e50;
+$text-color-black: #222;
+$background-indigo: #12002b;
+$button-lightgreen: #00bc77;
+
+// margins
+
+$sign-in-form-padding: 32px;
+$button-border-size: 2px;
+
+// breakpoints
+
+$breakpoints: (
+  "smartphone": 767px,
+  "phone-portrait": 575px,
+);

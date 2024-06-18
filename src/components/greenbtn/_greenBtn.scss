@@ -1,0 +1,11 @@
+.green-btn {
+  background-color: $button-lightgreen;
+  border: $button-border-size outset $button-lightgreen;
+  color: $white-color;
+  padding: 8px 16px;
+  text-align: center;
+
+  @include hover-light-text(0.5) {
+    background-color: lighten($button-lightgreen, 2%);
+  }
+}
