@@ -9,7 +9,8 @@ const store = configureStore({
     user: userReducer
   },
 })
-
+//Appelle l'action initializeAuthentication pour vérifier et restaurer l'état d'authentification au 
+//démarrage de l'application.
 store.dispatch(initializeAuthentication());
 
 export default store

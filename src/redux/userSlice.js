@@ -8,7 +8,7 @@ const headers = (token) => ({
   'Authorization': 'Bearer '+token
 })
 
-//Récupération profil utilisateur
+//Récupération profil utilisateur en utilisant le token d'authentification stocké dans l'état.
 export const fetchUserProfile = createAsyncThunk(
   'user/fetchUserProfile',
   async (_, { getState, dispatch, rejectWithValue }) => {
@@ -82,26 +82,27 @@ const userSlice = createSlice({
     email: null,
     firstName: null,
     lastName: null,
-    isLoading: false,
     error: null
   },
+  //actions synchrones.
   reducers: {
+    //Réinitialise l'état utilisateur.
     clearUser: (state) => {
       state.id = null
       state.email = null
       state.firstName = null
       state.lastName = null
-      state.isLoading = false
       state.error = null
     },
     clearEdit: (state) => {
       state.isEdit = null
     }
   },
+  //Gère les états des actions asynchrones fetchUserProfile et updateUserProfile en focntion des différente
+  //étapes des actions.
   extraReducers: (builder) => {
     builder
       .addCase(fetchUserProfile.pending, (state) => {
-        state.isLoading = true
         state.error = null
       })
       .addCase(fetchUserProfile.fulfilled, (state, action) => {
@@ -111,17 +112,14 @@ const userSlice = createSlice({
         state.email = email
         state.firstName = firstName
         state.lastName = lastName
-        state.isLoading = false
         state.error = null
       })
       .addCase(fetchUserProfile.rejected, (state, action) => {
-        state.isLoading = false
         state.error = action.payload
       })
 
 
       .addCase(updateUserProfile.pending, (state) => {
-        state.isLoading = true
         state.error = null
       })
       .addCase(updateUserProfile.fulfilled, (state, action) => {
@@ -131,20 +129,21 @@ const userSlice = createSlice({
         state.email = email
         state.firstName = firstName
         state.lastName = lastName
-        state.isLoading = false
         state.error = null
       })
       .addCase(updateUserProfile.rejected, (state, action) => {
-        state.isLoading = false
         state.error = action.payload
       })
   }
 })
-//Obtenir l'état utilisateur
+//Sélecteur pour obtenir l'état du profil utilisateur (user) de l'état global.
 export const getUser = (state) => state.user
 
+//Sélecteur pour obtenir les erreurs liées au profil utilisateur (error) de l'état global.
 export const getUserError = (state) => state.user.error
 
+//Exportation des actions.
 export const { clearUser, clearEdit } = userSlice.actions
 
+//Exportation du reducer.
 export default userSlice.reducer
